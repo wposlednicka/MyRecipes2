@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,7 +70,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazwa potrawy i zdjecie 1/3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpD-5u-90f">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nazwa przepisu i zdjecie 1/3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpD-5u-90f">
                                 <rect key="frame" x="8" y="84" width="304" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -81,9 +82,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="x02-5G-yV6">
-                                <rect key="frame" x="8" y="181" width="304" height="352"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="x02-5G-yV6">
+                                <rect key="frame" x="8" y="181" width="304" height="304"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="x02-5G-yV6" secondAttribute="height" multiplier="19:22" id="VW6-ud-GHv"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="42t-43-OYt" appends="YES" id="eC7-sN-NNG"/>
                                 </connections>
@@ -96,12 +100,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x02-5G-yV6" secondAttribute="trailing" constant="8" id="AYI-dk-ZCd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x02-5G-yV6" secondAttribute="trailing" constant="8" id="Bbk-yW-BZC"/>
                             <constraint firstItem="x02-5G-yV6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="KXE-fM-RiJ"/>
+                            <constraint firstItem="x02-5G-yV6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Kf2-hx-JyV"/>
                             <constraint firstItem="x02-5G-yV6" firstAttribute="top" secondItem="hbf-wz-vfU" secondAttribute="bottom" constant="16" id="aLC-yJ-vxV"/>
                             <constraint firstItem="HpD-5u-90f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="e9b-tF-G69"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hbf-wz-vfU" secondAttribute="trailing" constant="8" id="gjD-UH-fmp"/>
                             <constraint firstItem="hbf-wz-vfU" firstAttribute="top" secondItem="HpD-5u-90f" secondAttribute="bottom" constant="30" id="pm9-Fv-NBj"/>
                             <constraint firstItem="hbf-wz-vfU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="r1S-3g-eWa"/>
                             <constraint firstItem="x02-5G-yV6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="uNF-e0-Efr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x02-5G-yV6" secondAttribute="trailing" constant="8" id="x3J-8Z-Dcv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
