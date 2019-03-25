@@ -18,6 +18,10 @@ class NewRecipeStepTwoViewController: UIViewController, UIPickerViewDelegate, UI
     var unitPickerData: [String] = []
     var ingredients: [Ingredient] = []
     
+   
+    @IBAction func cancelAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

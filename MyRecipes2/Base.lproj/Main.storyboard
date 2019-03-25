@@ -167,7 +167,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lan-hL-s9Y">
-                                                            <rect key="frame" x="8" y="12.5" width="288" height="20.5"/>
+                                                            <rect key="frame" x="8" y="12" width="288" height="20.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgD-Ku-V4P">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="20.5"/>
@@ -271,7 +271,11 @@
                         <viewLayoutGuide key="safeArea" id="VYK-Va-k3D"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nowy przepis 2/3" id="jTk-HO-hmR">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3nF-hl-z19"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3nF-hl-z19">
+                            <connections>
+                                <action selector="cancelAction:" destination="S3i-07-ZTl" id="z41-4D-AoL"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="AMF-re-atu"/>
                     </navigationItem>
                     <connections>
