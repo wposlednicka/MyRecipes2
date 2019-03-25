@@ -1,5 +1,5 @@
 //
-//  RecipesTableViewController.swift
+//  IngredientsTableViewController.swift
 //  MyRecipes2
 //
 //  Created by Wiktoria on 25/03/2019.
@@ -8,24 +8,16 @@
 
 import UIKit
 
-class RecipesTableViewController: UITableViewController {
-    
-    var recipes: [Recipe] = []
+class IngredientsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDummmyRecipe()
-    }
-    
-    private func  loadDummmyRecipe(){
-        
-        let ingredients = [Ingredient.init(name: "maka", amount: "300", unit: "dag")]
-        
-        let recipe1 = Recipe(name: "Spaghetti", image: UIImage(named: "meal1")!, ingredients: ingredients, description: "fajny opis")
-        
-        let recipe2 = Recipe(name: "Schabowy", image: UIImage(named: "meal2")!, ingredients: ingredients, description: "fajny opis schabowego")
-        
-        recipes += [recipe1, recipe2]
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,28 +28,24 @@ class RecipesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count
+        // #warning Incomplete implementation, return the number of rows
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = "recipeTableViewCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? RecipeTableViewCell else {
-            fatalError("Error with initialize recipeTebleViewCell")
-        }
-        
-        let recipe = recipes[indexPath.row]
-        cell.imageRecipe.image = recipe.image
-        cell.nameRecipeLabel.text = recipe.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
 
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.

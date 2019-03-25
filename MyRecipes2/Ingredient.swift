@@ -12,11 +12,22 @@ class Ingredient {
     
     var name: String
     var amount: String
-    var measure: String
+    var unit: String
     
-    init(name: String, amount: String, measure: String) {
+    init(name: String, amount: String, unit: String) {
         self.name = name
         self.amount = amount
-        self.measure = measure
+        self.unit = unit
     }
+}
+
+enum Unit: String {
+    typealias RawValue = String
+    case szt = "szt."
+    case kg = "kg"
+    case dag = "dag"
+    case litr = "litr"
+    case lyzka = "lyzka"
+    case lyzeczka = "lyzeczka"
+    case szczypta = "szczypta"
 }
