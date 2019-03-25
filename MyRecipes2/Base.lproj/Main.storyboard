@@ -167,7 +167,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lan-hL-s9Y">
-                                                            <rect key="frame" x="8" y="12" width="288" height="20.5"/>
+                                                            <rect key="frame" x="8" y="12.5" width="288" height="20.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgD-Ku-V4P">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="20.5"/>
@@ -279,7 +279,11 @@
                                 <action selector="cancelAction:" destination="S3i-07-ZTl" id="z41-4D-AoL"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="AMF-re-atu"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="AMF-re-atu">
+                            <connections>
+                                <segue destination="29M-Hr-MzU" kind="presentation" identifier="addNewRecipeThree" id="uLc-AC-Eqn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="amountIngredientTextField" destination="NlJ-IZ-zq9" id="HUi-h2-3aY"/>
@@ -291,6 +295,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGn-cH-CXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2851.875" y="73.943661971830991"/>
+        </scene>
+        <!--Nowy przepis 3/3-->
+        <scene sceneID="Me2-P1-Mml">
+            <objects>
+                <viewController id="Gcc-rG-wYj" customClass="NewRecipeStepThreeViewController" customModule="MyRecipes2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T0S-st-JQp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BPZ-oN-oOn">
+                                <rect key="frame" x="8" y="72" width="304" height="488"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sposob przyrzadzenia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOk-K2-oUG">
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Ac-Nf-DVH">
+                                        <rect key="frame" x="0.0" y="28.5" width="304" height="459.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zOk-K2-oUG" secondAttribute="trailing" id="3Ek-Oa-Rtd"/>
+                                    <constraint firstItem="zOk-K2-oUG" firstAttribute="leading" secondItem="BPZ-oN-oOn" secondAttribute="leading" id="JEX-ZC-RKI"/>
+                                    <constraint firstItem="6Ac-Nf-DVH" firstAttribute="leading" secondItem="BPZ-oN-oOn" secondAttribute="leading" id="U2J-3o-kj0"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Ac-Nf-DVH" secondAttribute="trailing" id="aKT-Bw-YNQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Ac-Nf-DVH" secondAttribute="bottom" id="djU-yC-j7c"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IHS-4j-yVz" firstAttribute="bottom" secondItem="BPZ-oN-oOn" secondAttribute="bottom" constant="8" id="gvd-0W-aMJ"/>
+                            <constraint firstItem="IHS-4j-yVz" firstAttribute="trailing" secondItem="BPZ-oN-oOn" secondAttribute="trailing" constant="8" id="lOA-2l-FK4"/>
+                            <constraint firstItem="BPZ-oN-oOn" firstAttribute="leading" secondItem="IHS-4j-yVz" secondAttribute="leading" constant="8" id="mkc-IZ-qmI"/>
+                            <constraint firstItem="BPZ-oN-oOn" firstAttribute="top" secondItem="IHS-4j-yVz" secondAttribute="top" constant="8" id="wcm-cb-kjN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IHS-4j-yVz"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nowy przepis 3/3" id="DEY-Y1-7G8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Y4k-Qd-o5C">
+                            <connections>
+                                <action selector="cancelAction:" destination="Gcc-rG-wYj" id="2yF-tf-C7s"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wmC-zX-xmk"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="6Ac-Nf-DVH" id="uJJ-4m-9Y2"/>
+                        <outlet property="saveButton" destination="wmC-zX-xmk" id="S8A-S8-t73"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eDY-xv-Yjk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4368.75" y="73.943661971830991"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="U4V-kf-4f7">
@@ -345,6 +408,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Su-ic-AMs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2040" y="74"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JkA-GD-D19">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="29M-Hr-MzU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ioc-iB-cYu">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Gcc-rG-wYj" kind="relationship" relationship="rootViewController" id="efI-fB-cyX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YlH-b2-WQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3621" y="74"/>
         </scene>
     </scenes>
     <resources>

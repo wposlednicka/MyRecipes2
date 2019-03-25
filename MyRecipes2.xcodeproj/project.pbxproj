@@ -11,6 +11,7 @@
 		761013622248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761013612248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift */; };
 		761013642248FE47003CAC30 /* IngredientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761013632248FE46003CAC30 /* IngredientsTableViewController.swift */; };
 		761013662248FE58003CAC30 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761013652248FE58003CAC30 /* IngredientTableViewCell.swift */; };
+		7611DC3A22491A1100BF9553 /* NewRecipeStepThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7611DC3922491A1100BF9553 /* NewRecipeStepThreeViewController.swift */; };
 		7617FDA02248E51F00B7D1C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617FD9F2248E51F00B7D1C6 /* AppDelegate.swift */; };
 		7617FDA22248E51F00B7D1C6 /* NewRecipeStepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617FDA12248E51F00B7D1C6 /* NewRecipeStepOneViewController.swift */; };
 		7617FDA52248E51F00B7D1C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7617FDA32248E51F00B7D1C6 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		761013612248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeStepTwoViewController.swift; sourceTree = "<group>"; };
 		761013632248FE46003CAC30 /* IngredientsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewController.swift; sourceTree = "<group>"; };
 		761013652248FE58003CAC30 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		7611DC3922491A1100BF9553 /* NewRecipeStepThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeStepThreeViewController.swift; sourceTree = "<group>"; };
 		7617FD9C2248E51F00B7D1C6 /* MyRecipes2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipes2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7617FD9F2248E51F00B7D1C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7617FDA12248E51F00B7D1C6 /* NewRecipeStepOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeStepOneViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				7617FD9F2248E51F00B7D1C6 /* AppDelegate.swift */,
 				7617FDA12248E51F00B7D1C6 /* NewRecipeStepOneViewController.swift */,
 				7617FDA32248E51F00B7D1C6 /* Main.storyboard */,
+				7611DC3922491A1100BF9553 /* NewRecipeStepThreeViewController.swift */,
 				761013632248FE46003CAC30 /* IngredientsTableViewController.swift */,
 				761013652248FE58003CAC30 /* IngredientTableViewCell.swift */,
 				761013612248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift */,
@@ -166,6 +169,7 @@
 				7617FDA22248E51F00B7D1C6 /* NewRecipeStepOneViewController.swift in Sources */,
 				7617FDB92248E63300B7D1C6 /* Ingredient.swift in Sources */,
 				761013602248EC81003CAC30 /* RecipeTableViewCell.swift in Sources */,
+				7611DC3A22491A1100BF9553 /* NewRecipeStepThreeViewController.swift in Sources */,
 				7617FDB52248E59A00B7D1C6 /* RecipesTableViewController.swift in Sources */,
 				7617FDA02248E51F00B7D1C6 /* AppDelegate.swift in Sources */,
 				761013622248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift in Sources */,
