@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class NewRecipeStepTwoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate{
     
@@ -14,14 +15,31 @@ class NewRecipeStepTwoViewController: UIViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var unitIngredientPicker: UIPickerView!
     @IBOutlet weak var amountIngredientTextField: UITextField!
     @IBOutlet weak var nameIngredientTextField: UITextField!
+   
     
     var unitPickerData: [String] = []
     var ingredients: [Ingredient] = []
-    
    
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    
+   
+    @IBAction func addIngredientToTable(_ sender: UIButton) {
+        let name = nameIngredientTextField.text!
+        let amount = amountIngredientTextField.text!
+        let selectedRow = unitIngredientPicker.selectedRow(inComponent:0)
+        let unit = unitPickerData[selectedRow]
+        
+        let ingredient = Ingredient(name: name, amount: amount, unit: unit)
+        
+        let newIndex = IndexPath(row: ingredients.count, section: 0)
+        ingredients.append(ingredient)
+        ingredientsTable.insertRows(at: [newIndex], with: .automatic)
+        
+        os_log("The ingredient save button was pressed", log: OSLog.default, type: .debug)
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -60,8 +78,9 @@ class NewRecipeStepTwoViewController: UIViewController, UIPickerViewDelegate, UI
         super.viewDidLoad()
         self.unitIngredientPicker.delegate = self
         self.unitIngredientPicker.dataSource = self
+        self.ingredientsTable.delegate = self
+        self.ingredientsTable.dataSource = self
         loadPickerData()
-
         // Do any additional setup after loading the view.
     }
     
