@@ -14,8 +14,6 @@ class IngredientTableViewCell: UITableViewCell {
     @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,7 +21,6 @@ class IngredientTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

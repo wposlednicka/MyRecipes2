@@ -10,12 +10,12 @@ import UIKit
 
 class Recipe {
     
-    var name: String
-    var image: UIImage
-    var ingredients: [Ingredient]
-    var description: String
+    var name: String?
+    var image: UIImage?
+    var ingredients: [Ingredient]?
+    var description: String?
     
-    init(name: String, image: UIImage, ingredients: [Ingredient], description: String) {
+    init(name: String?, image: UIImage?, ingredients: [Ingredient]?, description: String?) {
         self.name = name
         self.image = image
         self.ingredients = ingredients

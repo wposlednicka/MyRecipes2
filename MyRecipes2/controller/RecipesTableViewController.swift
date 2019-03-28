@@ -10,7 +10,9 @@ import UIKit
 
 class RecipesTableViewController: UITableViewController {
     
+    var selectedRecipe: Recipe?
     var recipes: [Recipe] = []
+    let identifierRecipeDetails = "showRecipeDetails"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,17 +22,25 @@ class RecipesTableViewController: UITableViewController {
     private func  loadDummmyRecipe(){
         
         let ingredients = [Ingredient.init(name: "maka", amount: "300", unit: "dag")]
+         let ingredients2 = [Ingredient.init(name: "maslo", amount: "1", unit: "kg")]
         
         let recipe1 = Recipe(name: "Spaghetti", image: UIImage(named: "meal1")!, ingredients: ingredients, description: "fajny opis")
         
-        let recipe2 = Recipe(name: "Schabowy", image: UIImage(named: "meal2")!, ingredients: ingredients, description: "fajny opis schabowego")
+        let recipe2 = Recipe(name: "Schabowy", image: UIImage(named: "meal2")!, ingredients: ingredients2, description: "fajny opis schabowego")
         
         recipes += [recipe1, recipe2]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == identifierRecipeDetails {
+            let destinationController = segue.destination as? RecipeDetailsViewController
+            var row = self.tableView.indexPathForSelectedRow
+            destinationController?.recipe = recipes[(row?.row)!]
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -56,6 +66,18 @@ class RecipesTableViewController: UITableViewController {
         cell.nameRecipeLabel.text = recipe.name
 
         return cell
+    }
+    
+    
+    @IBAction func unwindToRecipeList(sender: UIStoryboardSegue){
+        
+        if let sourceViewController = sender.source as? NewRecipeStepThreeViewController, let recipe = sourceViewController.recipe {
+            
+            let newIndexPath = IndexPath(row: recipes.count, section: 0)
+            recipes.append(recipe)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+        
     }
     
 
@@ -94,14 +116,8 @@ class RecipesTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+ 
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
 
 }

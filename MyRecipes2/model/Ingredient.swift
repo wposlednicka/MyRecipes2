@@ -23,11 +23,12 @@ class Ingredient {
 
 enum Unit: String {
     typealias RawValue = String
-    case szt = "szt."
-    case kg = "kg"
-    case dag = "dag"
-    case litr = "litr"
-    case lyzka = "lyzka"
-    case lyzeczka = "lyzeczka"
-    case szczypta = "szczypta"
+    case number = "szt."
+    case kilo = "kg"
+    case gram = "g"
+    case ounce = "dag"
+    case liter = "litr"
+    case spoon = "lyzka"
+    case teaspoon = "lyzeczka"
+    case dram = "szczypta"
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		761013602248EC81003CAC30 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7610135F2248EC81003CAC30 /* RecipeTableViewCell.swift */; };
 		761013622248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761013612248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift */; };
-		761013642248FE47003CAC30 /* IngredientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761013632248FE46003CAC30 /* IngredientsTableViewController.swift */; };
 		761013662248FE58003CAC30 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761013652248FE58003CAC30 /* IngredientTableViewCell.swift */; };
 		7611DC3A22491A1100BF9553 /* NewRecipeStepThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7611DC3922491A1100BF9553 /* NewRecipeStepThreeViewController.swift */; };
 		7617FDA02248E51F00B7D1C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617FD9F2248E51F00B7D1C6 /* AppDelegate.swift */; };
@@ -21,12 +20,12 @@
 		7617FDB52248E59A00B7D1C6 /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617FDB42248E59A00B7D1C6 /* RecipesTableViewController.swift */; };
 		7617FDB72248E5B200B7D1C6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617FDB62248E5B200B7D1C6 /* Recipe.swift */; };
 		7617FDB92248E63300B7D1C6 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617FDB82248E63300B7D1C6 /* Ingredient.swift */; };
+		7654897E224BCD210006444F /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7654897D224BCD210006444F /* RecipeDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7610135F2248EC81003CAC30 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		761013612248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeStepTwoViewController.swift; sourceTree = "<group>"; };
-		761013632248FE46003CAC30 /* IngredientsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewController.swift; sourceTree = "<group>"; };
 		761013652248FE58003CAC30 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		7611DC3922491A1100BF9553 /* NewRecipeStepThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeStepThreeViewController.swift; sourceTree = "<group>"; };
 		7617FD9C2248E51F00B7D1C6 /* MyRecipes2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipes2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +39,7 @@
 		7617FDB42248E59A00B7D1C6 /* RecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
 		7617FDB62248E5B200B7D1C6 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		7617FDB82248E63300B7D1C6 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		7654897D224BCD210006444F /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,23 +72,47 @@
 		7617FD9E2248E51F00B7D1C6 /* MyRecipes2 */ = {
 			isa = PBXGroup;
 			children = (
+				76548981224BF6070006444F /* view */,
+				76548980224BF5D90006444F /* model */,
+				7654897F224BF5AA0006444F /* controller */,
 				7617FD9F2248E51F00B7D1C6 /* AppDelegate.swift */,
-				7617FDA12248E51F00B7D1C6 /* NewRecipeStepOneViewController.swift */,
 				7617FDA32248E51F00B7D1C6 /* Main.storyboard */,
-				7611DC3922491A1100BF9553 /* NewRecipeStepThreeViewController.swift */,
-				761013632248FE46003CAC30 /* IngredientsTableViewController.swift */,
-				761013652248FE58003CAC30 /* IngredientTableViewCell.swift */,
-				761013612248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift */,
-				7617FDB42248E59A00B7D1C6 /* RecipesTableViewController.swift */,
-				7610135F2248EC81003CAC30 /* RecipeTableViewCell.swift */,
-				7617FDB62248E5B200B7D1C6 /* Recipe.swift */,
-				7617FDB82248E63300B7D1C6 /* Ingredient.swift */,
 				7617FDA92248E51F00B7D1C6 /* Assets.xcassets */,
 				7617FDAB2248E51F00B7D1C6 /* LaunchScreen.storyboard */,
 				7617FDAE2248E51F00B7D1C6 /* Info.plist */,
 				7617FDA62248E51F00B7D1C6 /* MyRecipes2.xcdatamodeld */,
 			);
 			path = MyRecipes2;
+			sourceTree = "<group>";
+		};
+		7654897F224BF5AA0006444F /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7617FDA12248E51F00B7D1C6 /* NewRecipeStepOneViewController.swift */,
+				761013612248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift */,
+				7611DC3922491A1100BF9553 /* NewRecipeStepThreeViewController.swift */,
+				7654897D224BCD210006444F /* RecipeDetailsViewController.swift */,
+				7617FDB42248E59A00B7D1C6 /* RecipesTableViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		76548980224BF5D90006444F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				7617FDB82248E63300B7D1C6 /* Ingredient.swift */,
+				7617FDB62248E5B200B7D1C6 /* Recipe.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		76548981224BF6070006444F /* view */ = {
+			isa = PBXGroup;
+			children = (
+				761013652248FE58003CAC30 /* IngredientTableViewCell.swift */,
+				7610135F2248EC81003CAC30 /* RecipeTableViewCell.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,11 +189,11 @@
 			files = (
 				761013662248FE58003CAC30 /* IngredientTableViewCell.swift in Sources */,
 				7617FDA82248E51F00B7D1C6 /* MyRecipes2.xcdatamodeld in Sources */,
-				761013642248FE47003CAC30 /* IngredientsTableViewController.swift in Sources */,
 				7617FDA22248E51F00B7D1C6 /* NewRecipeStepOneViewController.swift in Sources */,
 				7617FDB92248E63300B7D1C6 /* Ingredient.swift in Sources */,
 				761013602248EC81003CAC30 /* RecipeTableViewCell.swift in Sources */,
 				7611DC3A22491A1100BF9553 /* NewRecipeStepThreeViewController.swift in Sources */,
+				7654897E224BCD210006444F /* RecipeDetailsViewController.swift in Sources */,
 				7617FDB52248E59A00B7D1C6 /* RecipesTableViewController.swift in Sources */,
 				7617FDA02248E51F00B7D1C6 /* AppDelegate.swift in Sources */,
 				761013622248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift in Sources */,

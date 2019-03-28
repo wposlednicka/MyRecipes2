@@ -7,24 +7,43 @@
 //
 
 import UIKit
+import os.log
 
 class NewRecipeStepOneViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var nameRecipeTextField: UITextField!
     @IBOutlet weak var imageRecipeImage: UIImageView!
+    @IBOutlet weak var nextStepButton: UIBarButtonItem!
+    
+    var recipe: Recipe?
+    let identifierStepTwo = "addNewRecipeTwo"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let name = nameRecipeTextField.text!
+        let image = imageRecipeImage.image!
+        
+        if segue.identifier == identifierStepTwo {
+            let destinationNavigationController = segue.destination as? UINavigationController
+            if let targetController = destinationNavigationController?.topViewController as?NewRecipeStepTwoViewController{
+             
+                targetController.nameOne = name
+                targetController.imageOne = image
+            }
+        }
     }
+    
 
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         

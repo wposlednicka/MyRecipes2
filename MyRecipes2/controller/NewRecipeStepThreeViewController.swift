@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class NewRecipeStepThreeViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate {
 
@@ -17,14 +18,10 @@ class NewRecipeStepThreeViewController: UIViewController, UITextViewDelegate, UI
     let placeholderColor = UIColor.lightGray
     let textColor = UIColor.black
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-    }
-    
-    @IBAction func cancelAction(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
+    var nameOne: String?
+    var imageOne: UIImage?
+    var ingredientsTwo: [Ingredient]?
+    var recipe: Recipe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +29,24 @@ class NewRecipeStepThreeViewController: UIViewController, UITextViewDelegate, UI
         descriptionTextView.text = descriptionPlaceholder
         descriptionTextView.textColor = placeholderColor
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, canceling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let desc = descriptionTextView.text!
+        recipe = Recipe(name: nameOne!, image: imageOne!, ingredients: ingredientsTwo!, description: desc)
+    }
+    
+    @IBAction func cancelAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -51,16 +62,5 @@ class NewRecipeStepThreeViewController: UIViewController, UITextViewDelegate, UI
             textView.textColor = placeholderColor
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
