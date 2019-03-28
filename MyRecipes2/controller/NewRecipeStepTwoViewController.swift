@@ -15,12 +15,14 @@ class NewRecipeStepTwoViewController: UIViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var unitIngredientPicker: UIPickerView!
     @IBOutlet weak var amountIngredientTextField: UITextField!
     @IBOutlet weak var nameIngredientTextField: UITextField!
+    @IBOutlet weak var addIngredientButton: UIButton!
     
     var nameOne: String = ""
     var imageOne: UIImage?
     var unitPickerData: [String] = []
     var ingredients: [Ingredient] = []
     let identifierSegueThree = "addNewRecipeThree"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,8 @@ class NewRecipeStepTwoViewController: UIViewController, UIPickerViewDelegate, UI
         self.unitIngredientPicker.dataSource = self
         self.ingredientsTable.delegate = self
         self.ingredientsTable.dataSource = self
+        self.ingredientsTable.separatorColor = UIColor.white
+        self.addIngredientButton.backgroundColor = UIColor(red:0.37, green:0.62, blue:0.63, alpha:1.0)
         loadPickerData()
     }
     

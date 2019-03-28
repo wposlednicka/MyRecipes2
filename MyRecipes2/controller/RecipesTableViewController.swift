@@ -16,6 +16,7 @@ class RecipesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.separatorColor = UIColor.white
         loadDummmyRecipe()
     }
     

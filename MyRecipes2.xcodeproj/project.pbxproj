@@ -21,6 +21,7 @@
 		7617FDB72248E5B200B7D1C6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617FDB62248E5B200B7D1C6 /* Recipe.swift */; };
 		7617FDB92248E63300B7D1C6 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7617FDB82248E63300B7D1C6 /* Ingredient.swift */; };
 		7654897E224BCD210006444F /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7654897D224BCD210006444F /* RecipeDetailsViewController.swift */; };
+		76548983224CF5790006444F /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76548982224CF5790006444F /* SelfSizedTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7617FDB62248E5B200B7D1C6 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		7617FDB82248E63300B7D1C6 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		7654897D224BCD210006444F /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
+		76548982224CF5790006444F /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				761013652248FE58003CAC30 /* IngredientTableViewCell.swift */,
 				7610135F2248EC81003CAC30 /* RecipeTableViewCell.swift */,
+				76548982224CF5790006444F /* SelfSizedTableView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				7617FDA02248E51F00B7D1C6 /* AppDelegate.swift in Sources */,
 				761013622248FCB1003CAC30 /* NewRecipeStepTwoViewController.swift in Sources */,
 				7617FDB72248E5B200B7D1C6 /* Recipe.swift in Sources */,
+				76548983224CF5790006444F /* SelfSizedTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
