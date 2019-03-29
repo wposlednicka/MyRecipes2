@@ -18,6 +18,8 @@ class RecipesTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.separatorColor = UIColor.white
         loadDummmyRecipe()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 600
     }
     
     private func  loadDummmyRecipe(){

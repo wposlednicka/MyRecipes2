@@ -9,31 +9,24 @@
 import UIKit
 import os.log
 
-class NewRecipeStepTwoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
+class NewRecipeStepTwoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var ingredientsTable: UITableView!
-    @IBOutlet weak var unitIngredientPicker: UIPickerView!
-    @IBOutlet weak var amountIngredientTextField: UITextField!
-    @IBOutlet weak var nameIngredientTextField: UITextField!
     @IBOutlet weak var addIngredientButton: UIButton!
     
     var nameOne: String = ""
     var imageOne: UIImage?
-    var unitPickerData: [String] = []
     var ingredients: [Ingredient] = []
     let identifierSegueThree = "addNewRecipeThree"
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.viewDidLoad()
-        self.unitIngredientPicker.delegate = self
-        self.unitIngredientPicker.dataSource = self
         self.ingredientsTable.delegate = self
         self.ingredientsTable.dataSource = self
         self.ingredientsTable.separatorColor = UIColor.white
-        self.addIngredientButton.backgroundColor = UIColor(red:0.37, green:0.62, blue:0.63, alpha:1.0)
-        loadPickerData()
+        self.ingredientsTable.rowHeight = UITableViewAutomaticDimension
+        self.ingredientsTable.estimatedRowHeight = 600
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,36 +40,19 @@ class NewRecipeStepTwoViewController: UIViewController, UIPickerViewDelegate, UI
             }
         }
     }
+    
+    @IBAction func addNewIngredientToTable(sender: UIStoryboardSegue){
+        if let sourceVC = sender.source as? NewIngredientViewController, let ingredient = sourceVC.ingredient {
+            
+            let newIndexPath = IndexPath(row: ingredients.count, section: 0)
+            ingredients.append(ingredient)
+            ingredientsTable.insertRows(at: [newIndexPath], with: .automatic)
+            
+        }
+    }
    
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
-    }    
-   
-    @IBAction func addIngredientToTable(_ sender: UIButton) {
-        let name = nameIngredientTextField.text!
-        let amount = amountIngredientTextField.text!
-        let selectedRow = unitIngredientPicker.selectedRow(inComponent:0)
-        let unit = unitPickerData[selectedRow]
-        
-        let ingredient = Ingredient(name: name, amount: amount, unit: unit)
-        
-        let newIndex = IndexPath(row: ingredients.count, section: 0)
-        ingredients.append(ingredient)
-        ingredientsTable.insertRows(at: [newIndex], with: .automatic)
-        
-        os_log("The ingredient save button was pressed", log: OSLog.default, type: .debug)
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return unitPickerData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return unitPickerData[row]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,8 +74,8 @@ class NewRecipeStepTwoViewController: UIViewController, UIPickerViewDelegate, UI
         return cell
     }
     
-    private func loadPickerData(){
-        unitPickerData = [Unit.number.rawValue, Unit.kilo.rawValue, Unit.ounce.rawValue, Unit.gram.rawValue,                        Unit.dram.rawValue, Unit.liter.rawValue, Unit.spoon.rawValue, Unit.teaspoon.rawValue]
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {

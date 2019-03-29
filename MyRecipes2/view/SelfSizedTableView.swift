@@ -23,6 +23,7 @@ class SelfSizedTableView: UITableView {
         let height = min(contentSize.height, maxHeight)
         return CGSize(width: contentSize.width, height: height)
     }
+    
 
     /*
     // Only override draw() if you perform custom drawing.
