@@ -23,6 +23,8 @@ class RecipeDetailsViewController: UIViewController, UINavigationControllerDeleg
         self.nameLabel.text = recipe?.name
         self.descriptionLabel.text = recipe?.description
         self.ingredientsTableView.separatorColor = UIColor.white
+        self.ingredientsTableView.rowHeight = UITableViewAutomaticDimension
+        self.ingredientsTableView.estimatedRowHeight = 600
         //UIColor(red:0.37, green:0.62, blue:0.63, alpha:1.0)
         // Do any additional setup after loading the view.
     }

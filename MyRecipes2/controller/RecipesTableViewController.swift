@@ -24,7 +24,7 @@ class RecipesTableViewController: UITableViewController {
     
     private func  loadDummmyRecipe(){
         
-        let ingredients = [Ingredient.init(name: "maka", amount: "300", unit: "dag")]
+        let ingredients = [Ingredient.init(name: "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki. ", amount: "300", unit: "dag")]
          let ingredients2 = [Ingredient.init(name: "maslo", amount: "1", unit: "kg")]
         
         let recipe1 = Recipe(name: "Spaghetti", image: UIImage(named: "meal1")!, ingredients: ingredients, description: "fajny opis")
