@@ -53,6 +53,10 @@ class RecipeDetailsViewController: UIViewController, UINavigationControllerDeleg
         return cell
     }
     
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
   
     

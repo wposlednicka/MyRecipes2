@@ -55,7 +55,7 @@
                                 <connections>
                                     <outlet property="imageRecipe" destination="uZ8-85-2pe" id="4Te-6O-3CY"/>
                                     <outlet property="nameRecipeLabel" destination="Opd-ng-Ct9" id="ije-wk-KzL"/>
-                                    <segue destination="GQ4-a1-onT" kind="show" identifier="showRecipeDetails" id="WSO-k7-vMc"/>
+                                    <segue destination="dpr-Xr-c6p" kind="presentation" identifier="showRecipeDetails" id="WSO-k7-vMc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -115,10 +115,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="304" height="29.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="SmL-Gu-Xge">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="SmL-Gu-Xge">
                                                             <rect key="frame" x="4" y="4" width="132" height="20.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeH-n5-Spj">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeH-n5-Spj">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="20.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="50" id="TUl-Jo-DSW"/>
@@ -127,7 +127,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="unit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-gg-Ux7">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="unit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-gg-Ux7">
                                                                     <rect key="frame" x="52" y="0.0" width="80" height="20.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="80" id="CJQ-XQ-6lr"/>
@@ -214,6 +214,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qzz-jK-8kV"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KfD-KI-eJd">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="EVm-iH-ORm">
+                            <connections>
+                                <action selector="cancelButton:" destination="GQ4-a1-onT" id="CX7-QR-9cM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="lMe-kA-xEB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="iNi-wj-PDa" id="V5X-1d-nat"/>
                         <outlet property="ingredientsTableView" destination="ZWm-WU-A5o" id="T4B-jj-auS"/>
@@ -222,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8BE-VA-TI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-258.75" y="982.3943661971831"/>
+            <point key="canvasLocation" x="519" y="982"/>
         </scene>
         <!--Nowy przepis 1/3-->
         <scene sceneID="tne-QT-ifu">
@@ -340,10 +348,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="304" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HM6-Yl-Jde">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HM6-Yl-Jde">
                                                             <rect key="frame" x="8" y="12" width="130" height="20.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgD-Ku-V4P">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgD-Ku-V4P">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="20.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="50" id="at1-r6-ASu"/>
@@ -352,7 +360,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="unit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH3-Ra-Hca">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="unit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH3-Ra-Hca">
                                                                     <rect key="frame" x="50" y="0.0" width="80" height="20.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="80" id="hDq-mf-Jno"/>
@@ -520,7 +528,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YW6-Zu-67f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8m7-Ft-ECq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2852" y="886"/>
+            <point key="canvasLocation" x="3249.375" y="885.21126760563379"/>
         </scene>
         <!--Nowy przepis 3/3-->
         <scene sceneID="Me2-P1-Mml">
@@ -660,6 +668,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YlH-b2-WQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3621" y="74"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NqG-ib-PxZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dpr-Xr-c6p" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JgL-4Q-QxN">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GQ4-a1-onT" kind="relationship" relationship="rootViewController" id="k82-II-ZPC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Lc-5c-wfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-258.75" y="982.3943661971831"/>
         </scene>
     </scenes>
     <resources>
