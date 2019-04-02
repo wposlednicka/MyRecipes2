@@ -20,6 +20,12 @@ class NewRecipeStepOneViewController: UIViewController, UIImagePickerControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let editRecipe = recipe {
+            nameRecipeTextField.text = editRecipe.name
+            imageRecipeImage.image = editRecipe.image
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,9 +43,16 @@ class NewRecipeStepOneViewController: UIViewController, UIImagePickerControllerD
         if segue.identifier == identifierStepTwo {
             let destinationNavigationController = segue.destination as? UINavigationController
             if let targetController = destinationNavigationController?.topViewController as?NewRecipeStepTwoViewController{
-             
-                targetController.nameOne = name
-                targetController.imageOne = image
+                
+                if let editRecipe = recipe {
+                    editRecipe.name = name
+                    editRecipe.image = image
+                    targetController.recipe = editRecipe
+                }
+                else{
+                    targetController.nameOne = name
+                    targetController.imageOne = image
+                }
             }
         }
     }

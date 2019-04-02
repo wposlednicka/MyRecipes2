@@ -14,6 +14,7 @@ class NewRecipeStepTwoViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet weak var ingredientsTable: UITableView!
     @IBOutlet weak var addIngredientButton: UIButton!
     
+    var recipe: Recipe?
     var nameOne: String = ""
     var imageOne: UIImage?
     var ingredients: [Ingredient] = []
@@ -27,16 +28,25 @@ class NewRecipeStepTwoViewController: UIViewController, UITableViewDataSource, U
         self.ingredientsTable.separatorColor = UIColor.white
         self.ingredientsTable.rowHeight = UITableViewAutomaticDimension
         self.ingredientsTable.estimatedRowHeight = 600
+        
+        if let editRecipe = recipe {
+            ingredients = editRecipe.ingredients!
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == identifierSegueThree {
             let destinationNavigationController = segue.destination as? UINavigationController
             if let stepThreeController = destinationNavigationController?.topViewController as?NewRecipeStepThreeViewController {
-                
-                stepThreeController.nameOne = nameOne
-                stepThreeController.imageOne = imageOne
-                stepThreeController.ingredientsTwo = ingredients
+                if let editRecipe = recipe {
+                    editRecipe.ingredients = ingredients
+                    stepThreeController.recipe = editRecipe
+                }
+                else{
+                    stepThreeController.nameOne = nameOne
+                    stepThreeController.imageOne = imageOne
+                    stepThreeController.ingredientsTwo = ingredients
+                }
             }
         }
     }

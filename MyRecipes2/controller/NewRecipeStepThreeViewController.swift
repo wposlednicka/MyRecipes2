@@ -22,12 +22,16 @@ class NewRecipeStepThreeViewController: UIViewController, UITextViewDelegate, UI
     var imageOne: UIImage?
     var ingredientsTwo: [Ingredient]?
     var recipe: Recipe?
+    var newRecipe: Recipe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.descriptionTextView.delegate = self
         descriptionTextView.text = descriptionPlaceholder
         descriptionTextView.textColor = placeholderColor
+        if let editRecipe = recipe {
+            descriptionTextView.text = editRecipe.description
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,7 +42,15 @@ class NewRecipeStepThreeViewController: UIViewController, UITextViewDelegate, UI
         }
         
         let desc = descriptionTextView.text!
-        recipe = Recipe(name: nameOne!, image: imageOne!, ingredients: ingredientsTwo!, description: desc)
+        
+        if let editRecipe = recipe {
+            editRecipe.description = desc
+            recipe = editRecipe
+        }
+        else{
+            newRecipe = Recipe(name: nameOne!, image: imageOne!, ingredients: ingredientsTwo!, description: desc)
+        }
+        
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {

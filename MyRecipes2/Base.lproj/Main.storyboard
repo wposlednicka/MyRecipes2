@@ -220,7 +220,11 @@
                                 <action selector="cancelButton:" destination="GQ4-a1-onT" id="CX7-QR-9cM"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="lMe-kA-xEB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="lMe-kA-xEB">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="editRecipe" id="I2N-rG-umy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="iNi-wj-PDa" id="V5X-1d-nat"/>
@@ -691,4 +695,7 @@
     <resources>
         <image name="default" width="570" height="352"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="I2N-rG-umy"/>
+    </inferredMetricsTieBreakers>
 </document>

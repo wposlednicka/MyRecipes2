@@ -15,18 +15,18 @@ class RecipeDetailsViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var descriptionLabel: UITextView!
     
     var recipe: Recipe?
+    let identifierEdit = "editRecipe"
+    let identifierCell = "ingredientCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.ingredientsTableView.delegate = self
-        self.ingredientsTableView.dataSource = self
         self.nameLabel.text = recipe?.name
         self.descriptionLabel.text = recipe?.description
+        self.ingredientsTableView.delegate = self
+        self.ingredientsTableView.dataSource = self
         self.ingredientsTableView.separatorColor = UIColor.white
         self.ingredientsTableView.rowHeight = UITableViewAutomaticDimension
         self.ingredientsTableView.estimatedRowHeight = 600
-        //UIColor(red:0.37, green:0.62, blue:0.63, alpha:1.0)
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +39,6 @@ class RecipeDetailsViewController: UIViewController, UINavigationControllerDeleg
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifierCell = "ingredientCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifierCell, for: indexPath) as? IngredientTableViewCell else {
             fatalError("Error with initialize IngredientTableViewCell")
@@ -56,19 +55,14 @@ class RecipeDetailsViewController: UIViewController, UINavigationControllerDeleg
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
-  
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == identifierEdit {
+            if  let destinationVC = segue.destination as? NewRecipeStepOneViewController {
+                destinationVC.recipe = recipe
+            }
+        }
     }
-    */
+ 
 
 }

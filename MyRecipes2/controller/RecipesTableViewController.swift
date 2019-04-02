@@ -78,13 +78,17 @@ class RecipesTableViewController: UITableViewController {
     
     @IBAction func unwindToRecipeList(sender: UIStoryboardSegue){
         
-        if let sourceViewController = sender.source as? NewRecipeStepThreeViewController, let recipe = sourceViewController.recipe {
-            
-            let newIndexPath = IndexPath(row: recipes.count, section: 0)
-            recipes.append(recipe)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        if let sourceViewController = sender.source as? NewRecipeStepThreeViewController{
+           if let recipe = sourceViewController.newRecipe {
+                let newIndexPath = IndexPath(row: recipes.count, section: 0)
+                recipes.append(recipe)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+            if let editRecipe = sourceViewController.recipe {
+                selectedRecipe = editRecipe
+                tableView.reloadData()
+            }
         }
-        
     }
     
 
