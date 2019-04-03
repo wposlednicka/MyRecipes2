@@ -13,6 +13,7 @@ class NewRecipeStepTwoViewController: UIViewController, UITableViewDataSource, U
     
     @IBOutlet weak var ingredientsTable: UITableView!
     @IBOutlet weak var addIngredientButton: UIButton!
+    @IBOutlet weak var nextStepButton: UIBarButtonItem!
     
     var recipe: Recipe?
     var nameOne: String = ""
@@ -32,6 +33,12 @@ class NewRecipeStepTwoViewController: UIViewController, UITableViewDataSource, U
         if let editRecipe = recipe {
             ingredients = editRecipe.ingredients!
         }
+        
+        updateNextButton()
+    }
+    
+    private func updateNextButton(){
+        nextStepButton.isEnabled = !ingredients.isEmpty
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,7 +46,7 @@ class NewRecipeStepTwoViewController: UIViewController, UITableViewDataSource, U
             let destinationNavigationController = segue.destination as? UINavigationController
             if let stepThreeController = destinationNavigationController?.topViewController as?NewRecipeStepThreeViewController {
                 if let editRecipe = recipe {
-                    editRecipe.ingredients = ingredients
+                   // editRecipe.ingredients = ingredients
                     stepThreeController.recipe = editRecipe
                 }
                 else{
@@ -57,7 +64,7 @@ class NewRecipeStepTwoViewController: UIViewController, UITableViewDataSource, U
             let newIndexPath = IndexPath(row: ingredients.count, section: 0)
             ingredients.append(ingredient)
             ingredientsTable.insertRows(at: [newIndexPath], with: .automatic)
-            
+            updateNextButton()
         }
     }
    
@@ -86,6 +93,21 @@ class NewRecipeStepTwoViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let alert = UIAlertController(title: "Uwaga!", message: "Czy chcesz usunac skladnik?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Nie", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Tak", style: UIAlertActionStyle.default, handler: { action in
+            
+            self.ingredients.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.updateNextButton()
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

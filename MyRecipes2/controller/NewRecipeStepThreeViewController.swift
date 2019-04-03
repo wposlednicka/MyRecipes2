@@ -32,6 +32,20 @@ class NewRecipeStepThreeViewController: UIViewController, UITextViewDelegate, UI
         if let editRecipe = recipe {
             descriptionTextView.text = editRecipe.description
         }
+        updateSaveButton()
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        updateSaveButton()
+    }
+    
+    private func updateSaveButton(){
+        if descriptionTextView.text == descriptionPlaceholder || descriptionTextView.text.isEmpty {
+          saveButton.isEnabled = false
+        }
+        else {
+             saveButton.isEnabled = true
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,7 +62,8 @@ class NewRecipeStepThreeViewController: UIViewController, UITextViewDelegate, UI
             recipe = editRecipe
         }
         else{
-            newRecipe = Recipe(name: nameOne!, image: imageOne!, ingredients: ingredientsTwo!, description: desc)
+            newRecipe = Recipe.init(name: nameOne, image: imageOne, ingredients: ingredientsTwo!, description: desc)
+            
         }
         
     }
@@ -63,7 +78,12 @@ class NewRecipeStepThreeViewController: UIViewController, UITextViewDelegate, UI
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == placeholderColor {
-            textView.text = nil
+            if let editRecipe = recipe {
+                textView.text = editRecipe.description
+            }
+            else{
+                textView.text = nil
+            }
             textView.textColor = textColor
         }
     }

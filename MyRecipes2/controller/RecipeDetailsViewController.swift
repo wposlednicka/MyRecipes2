@@ -26,7 +26,6 @@ class RecipeDetailsViewController: UIViewController, UINavigationControllerDeleg
         self.ingredientsTableView.dataSource = self
         self.ingredientsTableView.separatorColor = UIColor.white
         self.ingredientsTableView.rowHeight = UITableViewAutomaticDimension
-        self.ingredientsTableView.estimatedRowHeight = 600
     }
 
     override func didReceiveMemoryWarning() {

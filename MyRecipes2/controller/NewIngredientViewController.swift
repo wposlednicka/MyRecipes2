@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class NewIngredientViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewIngredientViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var unitIngredientPicker: UIPickerView!
     @IBOutlet weak var amountIngredientTextField: UITextField!
@@ -23,25 +23,42 @@ class NewIngredientViewController: UIViewController, UIPickerViewDelegate, UIPic
         super.viewDidLoad()
         self.unitIngredientPicker.delegate = self
         self.unitIngredientPicker.dataSource = self
+        self.amountIngredientTextField.delegate = self
+        self.nameIngredientTextField.delegate = self
 
         loadPickerData()
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        guard let button = sender as? UIButton, button === saveButton else {
-            os_log("The save button was not pressed, canceling", log: OSLog.default, type: .debug)
-            return
+        
+        
+        if  let name = nameIngredientTextField.text, !name.isEmpty,
+            let amount = amountIngredientTextField.text, !amount.isEmpty {
+          
+            guard let button = sender as? UIButton, button === saveButton else {
+                os_log("The save button was not pressed, canceling", log: OSLog.default, type: .debug)
+                return
+            }
+            
+            let name = nameIngredientTextField.text!
+            let amount = amountIngredientTextField.text!
+            let selectedRow = unitIngredientPicker.selectedRow(inComponent:0)
+            let unit = unitPickerData[selectedRow]
+            
+            ingredient = Ingredient.init(name: name, amount: amount, unit: unit)
+            
+            os_log("The ingredient save button was pressed", log: OSLog.default, type: .debug)
+        }
+        else{
+       
+            let alert = UIAlertController(title: "Uwaga!", message: "Uzupelnij pola", preferredStyle: UIAlertControllerStyle.alert)
+            self.present(alert, animated: true, completion: nil)
+            
         }
         
-        let name = nameIngredientTextField.text!
-        let amount = amountIngredientTextField.text!
-        let selectedRow = unitIngredientPicker.selectedRow(inComponent:0)
-        let unit = unitPickerData[selectedRow]
-        
-        ingredient = Ingredient(name: name, amount: amount, unit: unit)
-        
-        os_log("The ingredient save button was pressed", log: OSLog.default, type: .debug)
+
         
     }
 

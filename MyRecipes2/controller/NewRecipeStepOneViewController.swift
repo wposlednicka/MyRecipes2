@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class NewRecipeStepOneViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewRecipeStepOneViewController: UIViewController, UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var nameRecipeTextField: UITextField!
     @IBOutlet weak var imageRecipeImage: UIImageView!
@@ -26,6 +26,22 @@ class NewRecipeStepOneViewController: UIViewController, UIImagePickerControllerD
             imageRecipeImage.image = editRecipe.image
         }
         
+        nameRecipeTextField.delegate = self
+        updateSaveButtonState()
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        nextStepButton.isEnabled = false
+    }
+    
+    private func updateSaveButtonState() {
+        let text = nameRecipeTextField.text ?? ""
+        nextStepButton.isEnabled = !text.isEmpty
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
     }
     
     override func didReceiveMemoryWarning() {
