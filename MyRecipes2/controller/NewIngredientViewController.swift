@@ -27,8 +27,13 @@ class NewIngredientViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.nameIngredientTextField.delegate = self
 
         loadPickerData()
+        
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -82,6 +87,7 @@ class NewIngredientViewController: UIViewController, UIPickerViewDelegate, UIPic
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
 
     /*
